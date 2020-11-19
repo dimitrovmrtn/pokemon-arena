@@ -1,0 +1,195 @@
+body {
+  margin: 0;
+  /* padding: 20px; */
+  background: url("./poke.jpg") fixed;
+  background-size: 20%;
+  /* background-position: center; */
+}
+.interface {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.arena {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  background-color: #000000;
+  background-image: linear-gradient(108deg, #04619f 20%, red 100%);
+}
+.pokemon {
+  width: 20vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+  /* background-color: rgb(187, 60, 60); */
+  background-color: rgb(62, 128, 170);
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  transition: 0.5s;
+}
+.pokemon:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.pokemon p.name {
+  text-transform: capitalize;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: white;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+.details p {
+  margin: 0px;
+  color: rgb(228, 228, 228);
+}
+.player h3 {
+  margin: 0;
+  color: white;
+  text-transform: capitalize;
+  text-align: center;
+}
+.player img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  /* transition: transform 2s ease-out; */
+}
+#playerImg.attacking {
+  animation: playerAttack 5s;
+}
+#enemyImg.attacking {
+  animation: enemyAttack 5s;
+}
+#hpValue {
+  text-align: center;
+  margin: 0;
+  color: white;
+}
+progress {
+  background-color: greenyellow;
+}
+#playerImg.blinking,
+#enemyImg.blinking {
+  animation: blink 1.5s 2s;
+}
+
+.log {
+  position: absolute;
+  font-family: system-ui;
+  letter-spacing: 0.8px;
+  font-weight: bold;
+  width: 20vw;
+  top: 0;
+  transform: translate(40vw, 58vh);
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  max-height: 42vh;
+  overflow: hidden;
+}
+
+.logs {
+  overflow: hidden;
+  /* max-height: 40vh; */
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.hit {
+  color: white;
+  text-transform: none;
+}
+
+.fight {
+  position: absolute;
+  width: 10vw;
+  top: 0;
+  transform: translate(45vw, 30vh);
+  background-color: #000000;
+  background-image: linear-gradient(108deg, red 20%, #014b7c 70%);
+  border-radius: 10px;
+  border: 1px solid white;
+  padding: 15px 0;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  font-family: system-ui;
+  cursor: pointer;
+  /* border: none; */
+  outline: none;
+  transition: opacity 0.4s;
+}
+.fight:hover,
+.playAgain:hover {
+  opacity: 0.7;
+}
+.playAgain {
+  padding: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: opacity 0.4s;
+}
+.disabled {
+  pointer-events: none;
+  opacity: 0.4;
+  content: "Attacking...";
+}
+.hidden {
+  display: none;
+}
+.end p {
+  text-align: center;
+  font-size: 18px;
+  color: white;
+}
+
+@keyframes playerAttack {
+  50% {
+    transform: translateX(42vw);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes enemyAttack {
+  50% {
+    transform: translateX(-42vw);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+}
